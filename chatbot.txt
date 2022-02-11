@@ -1,0 +1,19 @@
+
+
+from chatterbot import Chatbot
+from chatterbot.trainers import ChatterBotCorpusTrainer
+# Create a new chat bot named Kel
+chatbot = ChatBot('Kel')
+trainer = ChatterBotCorpusTrainer(chatbot)
+trainer.train("./covid.yml")
+#trainer.train('chatterbot.corpus.english')
+print('Type something to begin...')
+# The following loop will execute each time the user enters input
+while True:
+try:
+user_input = input()
+bot_response = chatbot.get_response(user_input)
+print(bot_response)
+# Press ctrl-c or ctrl-d on the keyboard to exit
+except (KeyboardInterrupt, EOFError, SystemExit):
+break
